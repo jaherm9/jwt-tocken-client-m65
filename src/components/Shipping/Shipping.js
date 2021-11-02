@@ -1,13 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
+import { getStoredCart } from '../../utilities/fakedb';
 import './Shipping.css';
 
 const Shipping = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useAuth();
     const onSubmit = data => {
-        console.log(data)
+        const savedCart = getStoredCart();
+        data.order = savedCart;
+        
     };
     return (
         <div>
