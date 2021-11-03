@@ -16,7 +16,7 @@ const useCart = () => {
         })
         .then(res => res.json())
         .then(products =>{
-            
+            console.log(products);
             if (products.length) {
             
             const storedCart = [];
